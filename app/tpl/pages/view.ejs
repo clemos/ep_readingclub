@@ -1,0 +1,13 @@
+<ul class="lang-switch pull-right nav nav-pills">
+	<li><a href="#" class="set-lang" data-lang="fr">FR</a></li>
+	<li><a href="#" class="set-lang" data-lang="en">EN</a></li>
+</ul>
+
+<div class="translated" data-lang="fr">
+	<h3><%= page.title %></h3>
+	<%- page.content %>
+</div>
+<div class="translated" data-lang="en">
+	<h3><%= page.title_en %></h3>
+	<%- page.content_en %>
+</div>

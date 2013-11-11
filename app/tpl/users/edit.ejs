@@ -1,0 +1,47 @@
+
+<ul class="breadcrumb">
+	<li><a href='/users'>Users</a> <span class="divider">/</span></li>
+	<% if(user){ %><li class="active">Edit</li><% } else { %><li class='active'>New</li><% } %>
+</ul>
+<% if( form.messages ) { 
+form.messages.forEach( function(message){ %>
+	<div class="alert alert-<%= message.type %>">
+		<%= message.text %>
+	</div>
+<% }); } %>
+<form action="" method="post">
+	<div class="control-group">
+		<label>Name</label>
+		<input type="text" name="name" value="<%= form.name %>"/>
+	</div>
+	<div class="control-group">
+		<label>Email</label>
+		<input type="text" name="email" value="<%= form.email %>"/>
+	</div>
+	<div class="control-group">
+		<label>Color</label>
+		<input type="text" name="color" value="<%= form.color || '000' %>" class="colorpicker-input"/>
+	</div>
+	<div class="control-group">
+		<label>Role</label>
+		<select name="role">
+			<% roles.forEach(function(role){ %>
+				<option <% if( role == form.role ){ %>selected<% } %> value="<%= role %>"><%= role %></option>
+			<% }) %>
+		</select>
+	</div>
+	<div class="control-group">
+		<label>Password</label>
+		<input name="password" type="password" value=""/>
+	</div>
+	<div class="control-group">
+		<label>Password (confirm)</label>
+		<input name="password2" type="password" value=""/>
+	</div>
+	<div class="form-actions">
+		<div class="span12">
+			<input type="submit" value="Save" class="btn">
+		</div>
+	</div>
+	
+</form>

@@ -1,0 +1,161 @@
+
+<ul class="breadcrumb">
+	<li><a href='/pads'>Pads</a> <span class="divider">/</span></li>
+	<% if(pad){ %>
+	<li class="active">Edit <b><%= form.name %></b> <span class="label"><%= form.status %></span></li>
+	<% } else { %>
+	<li class='active'>New</li>
+	<% } %>
+</ul>
+<% if( messages ){ %>
+	<% messages.forEach(function(message){ %>
+		<div class="alert alert-<%= message.type %>">
+			<%= message.text %>
+		</div>
+	<% }) %>
+<% } %>
+
+<% if( pad ){ %>
+<ul class="nav nav-tabs">
+	<li class="<% if(op == 'infos') { %>active<% } %>"><a href='infos'>Infos</a></li>
+	<li class="<% if(op == 'users') { %>active<% } %>"><a href='users'>Users</a></li>
+</ul>
+<% } %>
+
+<div class="tab-content">
+	<div class="tab-pane <% if(op == 'infos') { %>active<% } %>" id="infos">
+		<form class="form-horizontal" action="" method="post">
+			<div class="">
+				<div class="span6">
+					<fieldset class="">
+						<div class="control-group">
+							<label class="control-label">Name</label>
+							<div class="controls">
+								<input type="text" name="name" value="<%= form.name %>"/>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="">
+				<div class="span12">
+					<fieldset class="span12">
+						<div class="control-group">
+							<label class="control-label">Initial Text</label>
+							<div class="controls">
+								<textarea class="span12 initial-text" type="text" name="initialText"><%= form.initialText %></textarea>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			<div class="">
+				<fieldset class="span6">
+					<legend>Options</legend>
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox">
+								<input name="options_colors" type="checkbox" <% if(form.options_colors){ %>checked<% } %>/>
+								Enable colors
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox">
+								<input name="options_fonts" type="checkbox" <% if(form.options_fonts){ %>checked<% } %>/>
+								Enable fonts
+							</label>
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">
+							Number of streams
+						</label>
+						<div class="controls">
+							<select name="options_streams" class="span6">
+								<% [0,1,2].forEach(function(n){ %>
+								<option value="<%= n %>" <% if( n == form.options_streams ){ %>selected<% } %>><%= n %></option>
+								<%	}) %>
+							</select>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="span6">
+					<legend>Text limits</legend>
+					<div class="control-group">
+						<label class="control-label">
+							Duration</label>
+							<div class="controls">
+								<input name="duration" class="span6" type="text" value="<%= form.duration || 0 %>" />
+								<div class="help-inline">
+									Any negative, non-numeric value or zero means unlimited
+								</div>
+							</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">
+							Minimum length</label>
+							<div class="controls">
+								<input name="size_min" class="span6" type="text" value="<%= form.size_min %>" />
+							</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label">
+							Maximum length</label>
+							<div class="controls">
+								<input name="size_max" class="span6" type="text" value="<%= form.size_max %>" />
+							</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="clearfix"></div>
+			<div class="form-actions">
+				<div class="span12">
+					<input type="submit" value="Save" class="btn">
+				</div>
+			</div>
+
+		</form>
+	</div>
+	<% if(pad){ %>
+	<div class="tab-pane <% if(op == 'users') { %>active<% } %>" id="users">
+		<form class="form-inline" action="/pads/edit/<%= pad._id %>/users/add">
+			<!--<div class="form-actions">-->
+			<fieldset class="span5">
+				<div class="control-group">
+					<label class="control-label">Add users</label>
+					<div class="controls">
+						<div class="input-append">
+							<input autocomplete="off" type="text" name="name" placeholder="Type a user name" class="user-typeahead"></input>
+							<input type="submit" value="Add" class="btn "></input>
+						</div>
+					</div>
+			</fieldset>
+				
+			<!--</div>-->
+		</form>
+		<table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Operations</th>
+			</tr>
+		<% if(!pad.users.length) { %>
+			<tr>
+				 <td colspan="3" class="muted">No users</td>
+			</tr>
+		<% } %>
+		<% pad.users.forEach(function(item){ %>
+			<tr>
+				 <td><%= item.name %></td>
+				 <td><%= item.email %></td>
+				 <td>
+				 	<a onclick="return confirm('Do you really want to remove this user ?')" href="/pads/edit/<%= pad._id %>/users/remove?id=<%= item.id %>" class='btn btn-danger'>Remove</a>
+				 </td>
+			</tr>
+		<% }) %>
+		</table>
+	</div>
+	<% } %>
+</div>

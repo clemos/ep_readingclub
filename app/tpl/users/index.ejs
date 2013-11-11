@@ -1,0 +1,30 @@
+
+<ul class="breadcrumb">
+	<li class="active">Users</li>
+</ul>
+<div class="btn-toolbar">
+	<div class="btn-group">
+		<a href='/users/new' class="btn">New User</a>
+	</div>
+</div>
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Role</th>
+		<th>Author ID</th>
+		<th>Operations</th>
+	</tr>
+<% items.forEach(function(item){ %>
+	<tr>
+		 <td><%= item.name %></td>
+		 <td><%= item.email %></td>
+		 <td><%= item.role %></td>
+		 <td><%= item.authorID %></td>
+		 <td>
+		 	<a onclick="return confirm('Do you really want to remove this user ?')" href='/users/remove/<%= item._id %>' class='btn btn-danger'>Remove</a>
+		 	<a href='/users/edit/<%= item._id %>' class='btn'>Edit</a>
+		 </td>
+	</tr>
+<% }) %>
+</table>

@@ -1,0 +1,4 @@
+<% include ../layout/head %>
+<h3>L'écriture n'a pas commencé</h3>
+Revenez plus tard.
+<% include ../layout/foot %>

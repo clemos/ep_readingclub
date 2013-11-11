@@ -1,0 +1,6 @@
+<% include header %>
+<iframe data-pad="<%= pad._id %>" class="etherpad timeline"
+	src="http://<%= conf.etherpad.host %>:<%= conf.etherpad.port %>/p/<%= roId %>/timeslider?showLineNumbers=false&showChat=false&alwaysShowChat=false&noColors=<%= pad.options_colors ? 'false' : 'true' %>"
+	frameborder="no"
+	scrolling="no">
+</iframe>

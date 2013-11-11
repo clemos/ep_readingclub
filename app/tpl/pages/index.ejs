@@ -1,0 +1,25 @@
+
+<ul class="breadcrumb">
+	<li class="active">Pages</li>
+</ul>
+<table class="table">
+	<tr>
+		<th>Title</th>	
+		<th>Name</th>
+		<th>Operations</th>
+	</tr>
+<% if(items){ %>
+	<% items.forEach(function(item){ %>
+		<tr>
+			 <td><b><%= item.title %></b></td>
+			 <td><%= item.name %></td>
+			 <td>
+			 	<a href='/<%= item.name %>' class='btn btn-mini'>View</a>
+			 	<a href='/pages/edit/<%= item._id %>' class='btn btn-mini'>Edit</a>
+			 </td>
+		</tr>
+	<% }) %>
+<% }else{ %>
+	<tr><td colspan="5"><div class="muted">No Pages yet</div></td></tr>
+<% } %>
+</table>

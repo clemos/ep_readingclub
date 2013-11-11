@@ -1,0 +1,10 @@
+{
+  "parts": [
+    {
+      "name": "ep_readingclub",
+      "hooks": {
+        "expressCreateServer": "ep_readingclub/index.js:createServer"
+      }
+    }
+  ]
+}

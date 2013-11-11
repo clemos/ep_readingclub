@@ -1,0 +1,11 @@
+
+<iframe data-pad="<%= pad._id %>" class="etherpad readonly"
+	src="http://<%= conf.etherpad.host %>:<%= conf.etherpad.port %>/p/<%= readOnlyID %>?showLineNumbers=false&showChat=false&alwaysShowChat=false&noColors=<%= pad.options_colors ? 'false' : 'true' %>"
+	frameborder="no"
+	scrolling="no">
+</iframe>
+<!--
+<div class="bottom-left">
+	<div class="pad-timer" data-pad="<%= pad._id %>">no limit</div>
+</div>
+-->

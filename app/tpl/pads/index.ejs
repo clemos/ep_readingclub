@@ -1,0 +1,70 @@
+
+<ul class="breadcrumb">
+	<li class="active">Pads</li>
+</ul>
+<% if( session.rc_user.role == "root" ){ %> 
+<div class="btn-toolbar">
+	<div class="btn-group">
+		<a href='/pads/new' class="btn">New Pad</a>
+	</div>
+</div>
+<% } %>
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<% if( session.rc_user.role == "root" ){ %>
+			<th>Status</th>
+			<th>Operations</th>
+			<th>View</th>
+		<% } %>
+	</tr>
+<% if( !items.length ){ %>
+	<tr>
+		<td colspan="3">
+			<div class="muted">No pads</div>
+		</td>
+	</tr>
+<% } %>
+<% items.forEach(function(item){ %>
+	<tr>
+		 <% if( session.rc_user.role == "root" ){ %>
+		 <td><b><%= item.name %></b></td>
+		 <td><span class="label"><%= item.status %></span></td>
+		 <td>
+		 	<div class="btn-group">
+		 	<a onclick="return confirm('Do you really want to remove this pad ?')" href='/pads/remove/<%= item._id %>' class='btn btn-mini btn-danger'>Remove</a>
+		 	<a href='/pads/edit/<%= item._id %>/infos' class='btn btn-mini'>Setup</a>
+		 	
+		 	<% if( item.status == "draft" ){ %>
+		 		<a href='/pads/enable/<%= item._id %>' class='btn btn-mini'>Enable</a>
+		 	<% } %>
+		 	<% if( item.status == "draft" || item.status == "enabled" ){ %>
+		 		<a href='/pads/start/<%= item._id %>' class='btn btn-mini'>Start</a>
+		 	<% } %>
+		 	<% if( item.status == "started") { %>
+		 		<a href='/pads/stop/<%= item._id %>' class='btn btn-mini'>Stop</a>
+		 	<% } %>
+		 	</div>
+		 </td>
+		 <td>
+		 	<div class="btn-group">
+		 	<% if( item.status != "draft" && item.status != "stopped" ){ %>
+		 	<% if( item.status == "started"){ %>
+		 		<a href='/pad/<%= item._id %>' class='btn btn-mini'>Editor</a>
+		 	<% } %>
+		 	<a href='/pad/<%= item._id %>?readonly=1' class='btn btn-mini'>Read-only</a>
+		 	<a href='/pad/<%= item._id %>?fullscreen=1' class='btn btn-mini'>Fullscreen</a>
+		 	<% } %>
+		 	<% if( item.status == "stopped" ) { %>
+		 	<a href='/pad/<%= item._id %>?timeline=1' class='btn btn-mini'>Timeline</a>
+		 	<% }else{ %>
+		 		<a href='/pad/<%= item._id %>' class='btn btn-mini'>View</a>
+		 	<% } %>
+		 	</div>
+		 </td>
+		 <% } else { %>
+		 	<td><b><a href='/pad/<%= item._id %>'><%= item.name %></a></b></td>
+		 <% } %>
+	</tr>
+<% }) %>
+</table>

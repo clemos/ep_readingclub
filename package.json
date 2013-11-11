@@ -1,0 +1,13 @@
+{
+  "name": "ep_readingclub",
+  "version": "0.0.3",
+  "description": "Reading Club plugin",
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "dependencies" : {
+  	"moment" : "*"
+  },
+  "readme": "ep_adminpads\n===========\n\nPlugin for etherpad lite for admins to list, search and delete pads. The route is `admin/pads`\n\n# Limitations\n\nRequires ueberDB >= 0.1.9 (release is in progress: https://github.com/Pita/ueberDB/pull/18)\nand etherpad lite >= 1.2.4 (pull request is pending: https://github.com/ether/etherpad-lite/pull/1342).\n\n",
+  "readmeFilename": "README.md"
+}

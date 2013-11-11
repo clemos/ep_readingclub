@@ -1,0 +1,21 @@
+<div class="pagination">
+	<ul>
+		<li class="<% if( prev < 0 ){ %>disabled<% } %>">
+		<% if( prev >= 0 ){ %>
+			<a href="?offset=<%= prev %>">Prev</a> 
+		<% }else{ %>
+			<span>Prev</span> 
+		<% } %>	</li>
+		<li>
+		<% for( i=0; i<max/n; i++ ){ %>
+			<li class="<% if( i*n == offset ){ %>active<% } %>"><a href="?offset=<%= i*n %>"><%= i+1 %></a></li>
+		<% } %>
+		<li class="<% if( next < 0 ){ %>disabled<% } %>">
+		<% if( next >= 0 ){ %>
+			<a href="?offset=<%= next %>">Next</a> 
+		<% }else{ %>
+			<span>Next</span> 
+		<% } %>	</li>
+		</li>
+	</ul>
+</div>

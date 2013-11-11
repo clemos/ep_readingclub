@@ -1,0 +1,19 @@
+{
+    "parts": [
+        {
+            "name": "ep_readingclub",
+            "hooks": {
+                "socketio": "ep_readingclub/app/index.js:socketio",
+                "expressConfigure": "ep_readingclub/app/index.js:expressConfigure"
+            },
+            "client_hooks" : {
+               "documentReady": "ep_readingclub/static/js/client.js:documentReady",
+               "aceEditEvent": "ep_readingclub/static/js/client.js:aceEditEvent",
+               "postAceInit": "ep_readingclub/static/js/client.js:postAceInit",
+               "aceCreateDomLine": "ep_readingclub/static/js/client.js:aceCreateDomLine",
+               "aceKeyEvent": "ep_readingclub/static/js/client.js:aceKeyEvent",
+               "aceInitialized": "ep_readingclub/static/js/client.js:aceInitialized"
+            }
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+<h1><a href="/"><div class='h1-reading'>Reading</div> <div class='h1-club'>Club</div></a></h1>
+
+<ul class="nav nav-pills nav-stacked"> 
+	<!--<li class="path path-event <%= ('event' == path[0]) ? 'active' : '' %>"><a href="/event/zinc">Event</a></li>-->
+	<li class="path path-info <%= ('info' == path[0]) ? 'active' : '' %>"><a href="/info">Info</a></li>
+	<li class="path path-archive <%= ('archive' == path[0]) ? 'active' : '' %>"><a href="/archive">Archives</a></li>
+    
+</ul>
+
+<% if( session && session.rc_user ){ %>
+	<ul class="nav nav-list">
+		<li class="nav-header">Connected as <%= session.rc_user.name %></li>
+	<% if( session.rc_user ){ %>
+		<% if( session.rc_user.role == "root" ){ %> 
+		<li class="path path-users <%= ('users' == path[0]) ? 'active' : '' %>"><a href="/users">Users</a></li>
+		<li class="path path-pads <%= ('pads' == path[0]) ? 'active' : '' %>"><a href="/pads">Pads</a></li>
+		<li class="path path-chat <%= ('chat' == path[0]) ? 'active' : '' %>"><a href="/chats">Chat</a></li>
+		<li class="path path-events <%= ('events' == path[0]) ? 'active' : '' %>"><a href="/events">Events</a></li>
+		<li class="path path-pages <%= ('users' == path[0]) ? 'active' : '' %>"><a href="/pages">Pages</a></li>
+		<% }else{ %>
+		<li class="path path-pads <%= ('pads' == path[0]) ? 'active' : '' %>"><a href="/pads">Pads</a></li>
+		<% } %>
+		<li class="divider"></li>
+		<li><a href="/logout" class="no-ajax">Logout</a></li>
+	</ul>
+	<% } %>
+<% }else{ %>
+	<!--<ul class="nav nav-pills nav-stacked">
+		<li class="path path-login <%= ('login' == path[0]) ? 'active' : '' %>"><a href="/login" class="">Login</a></li>
+	</ul>-->
+<% } %>
+

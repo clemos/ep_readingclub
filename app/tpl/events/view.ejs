@@ -1,0 +1,48 @@
+
+	<h3><%= event.place %></h3>
+	<dl class="dl-horizontal">
+		  <dt><%= event.date %></dt>
+		  <dd>
+		  	<%= event.title %>
+		  </dd>
+	</dl>
+	<ul class="nav nav-pills">
+		<li class='<% if( op == 'info' ) { %>active<% } %>'><a href='/events/<%= event._id %>/info'>Infos</a></li>
+		<li class='<% if( op == 'bio' ) { %>active<% } %>'><a href='/events/<%= event._id %>/bio'>Bios</a></li>
+	</ul>
+	
+	<% if( op == 'info' ){ %>
+		<%- event.info %>
+
+		<% var i = 0; event.texts.forEach(function(text){ %>
+
+			<dl class="dl-horizontal">
+			  <dt><h4><%= text.author %></h4></dt>
+			  <dd>
+			  		
+			  	<% if( event.status == 'active' ) { %>
+			  		<h4><a href="/pad/<%= text.pad %>"><%= text.title %></a></h4>
+			  	<% } else { %>
+			  		<h4><a href="/events/<%= event._id %>/<%= i %>/text"><%= text.title %></a></h4>
+			  	<% } %>
+				
+			  	<p><%- text.info %></p>
+			  	<% if( event.status == 'active' ) { %>
+			  		<a href="/pad/<%= text.pad %>"><b>Voir le texte</b></a>
+			  	<% } else { %>
+			  		<a href="/events/<%= event._id %>/<%= i %>/text"><b>Voir le texte</b></a>
+			  	<% } %>
+
+			  </dd>
+			</dl>
+
+		<% i++; }); %>
+
+	<% } %>
+	<% if( op == 'bio' ) { %>
+		<% var i = 0; event.texts.forEach(function(text){ %>
+			<p>
+				<%- text.bios %>
+			</p>
+		<% i++; }) %>
+	<% } %>

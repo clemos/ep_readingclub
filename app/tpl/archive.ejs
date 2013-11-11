@@ -1,0 +1,29 @@
+
+
+	<h3>Archives</h3>
+
+	<% events.forEach(function(event){ %>
+
+		<dl class="dl-horizontal">
+		  <dt><h4><%= event.date %></h4></dt>
+		  <dd><h4><a href='/events/<%= event.id %>'><%= event.place %></a></h4>
+		  	<p><%= event.title %></p>
+		  </dd>
+		</dl>
+
+
+		<% for( var i=0;i<event.texts.length; i++ ){ text = event.texts[i] %>
+			<dl class="dl-horizontal">
+			  <dt><%= text.author %></dt>
+			  <dd><b><a href="/events/<%= event.id %>/<%= i %>/text"><%= text.title %></a></b><br/>
+				<p><%- text.info %></p>
+				<ul class="nav nav-pills">
+					<li class=''><a href='/events/<%= event._id %>/<%= i %>/text'>Texte</a></li>
+					<li class=''><a href='/events/<%= event._id %>/<%= i %>/readers'>Lecteurs</a></li>
+					<li class=''><a href='/events/<%= event._id %>/<%= i %>/chat'>Tchat</a></li>
+					<li class=''><a href='/events/<%= event._id %>/<%= i %>/event'>Évènement</a></li>
+				</ul>
+			  </dd>
+			</dl>
+		<% } %>
+	<% }) %>

@@ -1,0 +1,35 @@
+
+<ul class="breadcrumb">
+	<li class="active">Events</li>
+</ul>
+<div class="btn-toolbar">
+	<div class="btn-group">
+		<a href='/events/new' class="btn">New Event</a>
+	</div>
+</div>
+<table class="table">
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Date</th>	
+		<th>Status</th>		
+		<th>Operations</th>
+	</tr>
+<% if(items){ %>
+	<% items.forEach(function(item){ %>
+		<tr>
+			 <td><b><%= item.title %></b></td>
+			 <td><%= item.place %></td>
+			 <td><%= item.date %></td>
+			 <td><%= item.status %></td>
+			 <td>
+			 	<a onclick="return confirm('Do you really want to remove this event ?')" href='/events/remove/<%= item._id %>' class='btn btn-danger btn-mini'>Remove</a>
+			 	<a href='/events/<%= item._id %>' class='btn btn-mini'>View</a>
+			 	<a href='/events/edit/<%= item._id %>/infos' class='btn btn-mini'>Edit</a>
+			 </td>
+		</tr>
+	<% }) %>
+<% }else{ %>
+	<tr><td colspan="5"><div class="muted">No Events yet</div></td></tr>
+<% } %>
+</table>

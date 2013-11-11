@@ -1,0 +1,11 @@
+<h3>Chat log</h3>
+
+<% include pagination %>
+<% if( chats){ %>
+	<% chats.forEach(function(chat){ %>
+		<% include line %>
+	<% }) %>
+<% }else{ %>
+	<div class="mute">No chat</div>
+<% } %>
+<% include pagination %>

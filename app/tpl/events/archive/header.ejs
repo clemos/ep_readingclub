@@ -1,0 +1,8 @@
+
+<h3 class=""><%= text.title %> <small><%= text.author %></small></h3> 
+<ul class="nav nav-pills">
+	<li class='<% if( op == 'text' ) { %>active<% } %>'><a href='/events/<%= event._id %>/<%= textId %>/text'>Texte</a></li>
+	<li class='<% if( op == 'readers' ) { %>active<% } %>'><a href='/events/<%= event._id %>/<%= textId %>/readers'>Lecteurs</a></li>
+	<li class='<% if( op == 'chat' ) { %>active<% } %>'><a href='/events/<%= event._id %>/<%= textId %>/chat'>Tchat</a></li>
+	<li class='<% if( op == 'event' ) { %>active<% } %>'><a href='/events/<%= event._id %>/<%= textId %>/event'>Évènement</a></li>
+</ul>

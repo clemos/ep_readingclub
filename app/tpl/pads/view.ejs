@@ -1,0 +1,10 @@
+<iframe data-pad="<%= pad._id %>" class="etherpad editor"
+	src="http://<%= conf.etherpad.host %>:<%= conf.etherpad.port %>/p/<%= pad.padID %>?size_max=<%= pad.size_max %>&size_min=<%= pad.size_min %>&showLineNumbers=false&showChat=false&userName=<%= session.rc_user ? session.rc_user.name : 'Nobody' %>&alwaysShowChat=false&noColors=<%= pad.options_colors ? 'false' : 'true' %><% if( session.rc_user && session.rc_user.color ){ %>&userColor=#<%= session.rc_user.color %><% } %>"
+	frameborder="no"
+	scrolling="no">
+</iframe>
+<!--
+<div class="bottom-left">
+	<div class="pad-timer" data-pad="<%= pad._id %>">no limit</div>
+</div>
+-->

@@ -1,0 +1,138 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+$linkColor: #222 !default;
+
+@import 'sass-bootstrap/lib/bootstrap';
+@import 'sass-bootstrap/lib/responsive';
+
+body {
+	padding-top:10px;
+	font-family: $altFontFamily;
+	overflow-y:scroll;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.initial-text {
+	height:500px;
+}
+.main-content {
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.etherpad {
+	width:100%;
+}
+.etherpad.fullscreen {
+	top:0;
+	width:100%;
+	height:100%;
+	left:0;
+	position:absolute;
+	z-index:1000;
+	background:#fff;
+}
+
+.chat.fullscreen {
+
+	position:absolute;
+	right:10px;
+	z-index:2000;
+
+}
+
+.h1-club {
+	font-size:60px;
+}
+.h1-reading {
+	font-size:33px;
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+	.h1-club {
+		font-size:40px;
+	}
+	.h1-reading {
+		font-size:22px;
+	}
+}
+
+.chat {
+	position:relative;
+}
+
+.chat-form {
+	position:absolute;
+	bottom:0;
+	width:100%;
+}
+.chat-box {
+	overflow:hidden;
+	position:relative;
+}
+.chat-content {
+	position:absolute;
+}
+
+.chat-user {
+	font-weight:bold;
+	display:block;
+	float:left;
+	margin-right:10px;
+}
+
+.broadcast {
+	font-weight:bold;
+}
+
+.chat-menu {
+	/*position:absolute;
+	top:5px;
+	right:5px;
+	z-index:2100;*/
+	/*float:right;*/
+	margin:10px 0;
+}
+
+.bottom-left {
+	position:absolute;
+	z-index:3000;
+	top:5px;
+	right:5px;
+}
+
+.pad-timer {
+	font-weight:20px;
+}
+
+.toggle-chat, .change-name {
+	color:#ddd;
+}
+.toggle-chat:hover,
+.change-name:hover{
+	color:#333;
+}
+
+.chat.hidden {
+	visibility:visible;
+	position:absolute;
+	right:20px;
+}
+.chat.hidden > * {
+	display:none;
+}
+.chat.hidden > .chat-menu {
+	display:block;
+}
+.chat-date {
+	float:right;
+	color:#ddd;
+}
+
+.wysihtml5-sandbox {
+	width:90%;
+	height:100%;
+	min-height:400px;
+	border:1px solid #eee;
+}

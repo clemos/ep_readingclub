@@ -1,0 +1,82 @@
+                    </div>
+                    <div class="span3 chat">
+                        <div class="active_pads hidden">
+                            <h4>Lectures en cours</h4>
+                            <ul class="pads">
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                        <h4 class="pull-left">Tchat public</h4>
+                        <div class="chat-menu">
+                            <div class="pull-right">
+                                <a href="#" class="toggle-chat">tchat visible</a>
+                                <a href="#" class="change-name">votre nom</a>
+                            </div>
+                            <form class="change-name-form hidden" action="/" onsubmit="return false">
+                                <div class="input-append span12">
+                                    <input type="text" name="name" class="span6 name-input" value="<% if( session && session.rc_user ){ %><%= session.rc_user.name %><% } %>"></input>
+                                    <input type="submit" class="btn" value="Changer"></input>
+                                </div>
+                            </form>
+                            
+                        </div>
+                        <div class="user_count"></div>
+                        <div class="clearfix"></div>
+                        
+                        <div class="chat-box">
+                            <div class="chat-content"></div>
+                        </div>
+                        
+                            <form class="chat-form" action="/" onsubmit="return false">
+                                <div class="input-append span12">
+                                    <input type="text" name="text" class="span9 chat-input"></input>
+                                    <input type="submit" class="btn" value="Tchat"></input>
+                                </div>
+                            </form>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44216579-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+        <!-- build:js scripts/main.js -->
+        <script src="/components/jquery/jquery.js"></script>        
+        <script src="/components/jquery-ui/ui/jquery-ui.js"></script>
+        <script src="/components/sass-bootstrap/js/bootstrap-dropdown.js"></script>
+        <script src="/components/sass-bootstrap/js/bootstrap-modal.js"></script>
+        <script src="/components/sass-bootstrap/js/bootstrap-affix.js"></script>
+        <script src="/components/sass-bootstrap/js/bootstrap-tab.js"></script>
+        <script src="/components/sass-bootstrap/js/bootstrap-typeahead.js"></script>
+        <script src="/components/sass-bootstrap/js/bootstrap-collapse.js"></script>
+        <script src="/components/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="/components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="/components/wysihtml5/dist/wysihtml5-0.3.0.min.js"></script>
+        <script src="/components/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/components/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+        <script src="/components/etherpad-lite-jquery-plugin/js/etherpad.js"></script>
+        <script src="/components/jquery.colorpicker/jquery.colorpicker.js"></script>
+        <script src="/scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,27 @@
+<% include header %>
+
+<dl class="dl-horizontal">
+  <dt><h4><%= event.date %></h4></dt>
+  <dd>	
+  	<h4><%= event.place %></h4>
+  	<p><%- event.info %></p>
+  </dd>
+</dl>
+
+<% var i = 0; event.texts.forEach(function(text){ %>
+
+	<dl class="dl-horizontal">
+	  <dt><%= text.author %></dt>
+	  <dd>
+	  		
+	  	<% if( event.status == 'active' ) { %>
+	  		<strong><a href="/pad/<%= text.pad %>"><%= text.title %></a></strong>
+	  	<% } else { %>
+	  		<strong><a href="/events/<%= event._id %>/<%= i %>/text"><%= text.title %></a></strong>
+	  	<% } %>
+		
+	  	<p><%- text.info %></p>
+	  </dd>
+	</dl>
+
+<% i++; }) %>
