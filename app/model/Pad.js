@@ -109,11 +109,9 @@ module.exports = exports = function( reading ){
 	}
 
 	var start = function( pad , next ){
-
 		if( pad.duration > 0 ){
 			tick( pad );
 		}
-
 		if( pad.padID == null ){
 			enable( pad , next );
 		}else{
@@ -153,6 +151,7 @@ module.exports = exports = function( reading ){
 			pad.status = "stopped";
 			pad.save(function(err){
 				console.log("pad stopped and saved");
+				console.log( err );
 			});
 		}
 
