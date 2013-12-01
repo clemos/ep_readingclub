@@ -1,0 +1,79 @@
+/*
+  custom css files are loaded after core css files. Simply use the same selector to override a style.
+  Example:
+      #editbar LI {border:1px solid #000;}
+    overrides
+      #editbar LI {border:1px solid #d5d5d5;}
+    from pad.css
+*/
+
+body, 
+#innerdocbody, 
+#myusernameedit, 
+#otheruserstable td,
+#padcontent {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size:14px;
+	line-height: 140%;
+}
+
+#padcontent a,
+#padcontent a:link,
+#padcontent a:visited,
+#padcontent a:hover {
+	color:inherit;
+	text-decoration:none;
+	cursor:text !important;
+}
+
+.timeslider-bar {
+	display:none;
+}
+
+#steppers {
+	display:none;
+}
+
+#timeslider-left, 
+#timeslider-right,
+#timeslider {
+	background:transparent;
+}
+#ui-slider-bar {
+	border-bottom:1px solid #999;
+	margin-left:0;
+	top:0;
+	/*background:#eee;*/
+}
+#ui-slider-handle {
+	background:#999;
+	width:5px;
+	top:25px;
+	height:20px;
+}
+
+#timeslider #timer {
+	color:#999;
+}
+
+#timeslider-wrapper {
+	background:#fff;
+}
+
+#editorcontainerbox {
+	top:0;
+	position:absolute;
+	overflow:auto;
+}
+
+body.no-colors span {
+	color:#000;
+	background-color:#fff;
+}
+
+body.fullscreen #timeslider-top {
+	display:none;
+}
+body.fullscreen #editorcontainerbox {
+	margin-top:0 !important;
+}
