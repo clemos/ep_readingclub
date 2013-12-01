@@ -1,0 +1,10 @@
+<iframe data-pad="<%= pad._id %>" class="etherpad timeline fullscreen"
+	src="http://<%= conf.etherpad.host %>:<%= conf.etherpad.port %>/p/<%= roId %>/timeslider?autostart=true&fullscreen=true&showLineNumbers=false&showChat=false&alwaysShowChat=false&noColors=<%= pad.options_colors ? 'false' : 'true' %>"
+	frameborder="no"
+	scrolling="no">
+</iframe>
+<script type="text/javascript">
+	window.addEventListener('load',function(){
+		$('body').css('overflow-y','hidden');
+	});
+</script>

@@ -159,20 +159,6 @@ exports.aceKeyEvent = function(hookName, args , cb){
 		return true;
 	}
 
-}
-
-exports.aceEditEvent = function( hookName, args , cb ){
-
-	var text = args.rep.alltext;
-	var editorInfo = args.editorInfo;
-	
-	var callstack = args.callstack;
-	var len = editorInfo.ace_exportText().length;
-	var editEvent = callstack.editEvent;
-
-	if( callstack.type == "idleWorkTimer" ) return;
-
-	var sel = editorInfo.ace_getSelection();
-	
+	//return false;
 
 }
