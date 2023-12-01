@@ -2,7 +2,10 @@
     "parts": [
         {
             "name": "ep_readingclub",
-            
+            "hooks": {
+                "socketio": "ep_readingclub/app/index.js:socketio",
+                "____expressConfigure": "ep_readingclub/app/index.js:expressConfigure"
+            },
             "client_hooks" : {
                "documentReady": "ep_readingclub/static/js/client.js:documentReady",
                "aceInitialized": "ep_readingclub/static/js/client.js:aceInitialized",
