@@ -11,7 +11,8 @@
     "ejs": "*",
     "mongoose": "*",
     "connect": "*",
-    "etherpad-lite-client": "*"
+    "etherpad-lite-client": "*",
+    "mongoose-text-search": "*"
   },
   "readme": "ep_adminpads\n===========\n\nPlugin for etherpad lite for admins to list, search and delete pads. The route is `admin/pads`\n\n# Limitations\n\nRequires ueberDB >= 0.1.9 (release is in progress: https://github.com/Pita/ueberDB/pull/18)\nand etherpad lite >= 1.2.4 (pull request is pending: https://github.com/ether/etherpad-lite/pull/1342).\n\n",
   "readmeFilename": "README.md"
