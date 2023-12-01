@@ -81,13 +81,13 @@ form.messages.forEach( function(message){ %>
 				<div class="muted text-center">No texts yet</div>
 			<% }else{ %>
 				<% for(var i=0; i<form.texts.length; i++){ var text = form.texts[i] %>
-					<%= include texts/edit %>
+					<%= include('texts/edit') %>
 				<% } %>
 			<% } %>
 			<hr class="clearfix" />
 			<h4>New text</h4>
 			<% text = null; i = form.texts.length %>
-			<%= include texts/edit %>
+			<%= include('texts/edit') %>
 			<div class="clearfix"></div>
 			<div class="form-actions">
 				<div class="span12">

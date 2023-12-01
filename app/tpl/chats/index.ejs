@@ -3,9 +3,9 @@
 <% include pagination %>
 <% if( chats){ %>
 	<% chats.forEach(function(chat){ %>
-		<% include line %>
+		<% include('line') %>
 	<% }) %>
 <% }else{ %>
 	<div class="mute">No chat</div>
 <% } %>
-<% include pagination %>
+<% include('pagination') %>

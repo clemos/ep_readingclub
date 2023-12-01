@@ -1,4 +1,4 @@
-<% include header %>
+<% include('header') %>
 <% for(i=0;i<chats.length;i++){ var chat=chats[i]; %>
-	<% include ../../chats/line %>
+	<% include ('../../chats/line') %>
 <% } %>
