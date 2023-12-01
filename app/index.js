@@ -75,7 +75,7 @@ function socketio( hook, args , cb ){
 	require('./handler/events.js')( reading );
 	
 	console.log("SOCKET IO HOOK: complete");
-	cb();
+	return cb();
 	//});
 }
 
@@ -192,6 +192,8 @@ function expressConfigure(hook, args , cb ){
 		next();
 
 	} );
+
+	console.log("EXPRESS HOOK complete");
 
 	/*app.get('/', function(req, res){
 		res.view.render( "index" , { pad : "test" } );
