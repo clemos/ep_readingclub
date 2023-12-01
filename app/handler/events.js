@@ -195,25 +195,46 @@ var attach = function( reading ){
 			});
 	});
 
-	reading.app.get('/', function( req, res ){
-		var q_archives = Event.find( { status : "archive" } )
-			.sort( '-event_date' );
+	reading.app.get('/', async function( req, res ){
+		const [
+			archives,
+			upcoming
+		] = await Promise.all([
+			Event.find( { status : "archive" } )
+				.sort( '-event_date' )
+				.exec(),
+			Event.find()
+				//.ne( 'status' , 'draft' )
+				.where( 'status' ).in( ["active","upcoming"] )
+				.sort( 'event_date' )
+				.exec()
+		]);
 
-		var q_upcoming = Event.find()
-			//.ne( 'status' , 'draft' )
-			.where( 'status' ).in( ["active","upcoming"] )
-			.sort( 'event_date' );
+		res.view.render('index' , {
+			//message : message,
+			archives : archives,
+			upcoming : upcoming,
+			path : []
+		} );
+
+		// var q_archives = Event.find( { status : "archive" } )
+		// 	.sort( '-event_date' );
+
+		// var q_upcoming = Event.find()
+		// 	//.ne( 'status' , 'draft' )
+		// 	.where( 'status' ).in( ["active","upcoming"] )
+		// 	.sort( 'event_date' );
 		
-		q_archives.exec(function(err,archives){
-			q_upcoming.exec( function(err,upcoming){
-				res.view.render('index' , {
-					//message : message,
-					archives : archives,
-					upcoming : upcoming,
-					path : []
-				} );
-			} );
-		});
+		// q_archives.exec(function(err,archives){
+		// 	q_upcoming.exec( function(err,upcoming){
+		// 		res.view.render('index' , {
+		// 			//message : message,
+		// 			archives : archives,
+		// 			upcoming : upcoming,
+		// 			path : []
+		// 		} );
+		// 	} );
+		// });
 
 	});
 
