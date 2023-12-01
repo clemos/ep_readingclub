@@ -4,7 +4,8 @@
             "name": "ep_readingclub",
             "hooks": {
                 "socketio": "ep_readingclub/app/index.js:socketio",
-                "____expressConfigure": "ep_readingclub/app/index.js:expressConfigure"
+                "expressConfigure": "ep_readingclub/app/index.js:expressConfigure",
+                "expressCreateServer": "ep_readingclub/app/index.js:expressCreateServer"
             },
             "client_hooks" : {
                "documentReady": "ep_readingclub/static/js/client.js:documentReady",

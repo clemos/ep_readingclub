@@ -75,7 +75,8 @@ function socketio( hook, args , cb ){
 	require('./handler/events.js')( reading );
 	
 	console.log("SOCKET IO HOOK: complete");
-	return cb();
+	cb();
+	return;
 	//});
 }
 
@@ -199,10 +200,16 @@ function expressConfigure(hook, args , cb ){
 		res.view.render( "index" , { pad : "test" } );
 	});*/
 
+	cb();
+	return;
+
 }
 
 exports.socketio = socketio;
 exports.expressConfigure = expressConfigure;
+exports.expressCreateServer = function(hook, context) {
+	console.log('called create server hook with args', hook, context);
+}
 
 //module.exports = exports = server;
 
