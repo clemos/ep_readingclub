@@ -59,12 +59,14 @@ function socketio( hook, args , cb ){
 	//io.set("close timeout", 10);
 	//io.set("heartbeat timeout", 10);
 
+	console.log("SOCKET IO HOOK: registering models...");
 	reading.model.Page = require('./model/Page')( reading );
 	reading.model.User = require('./model/User')( reading );
 	reading.model.Pad = require('./model/Pad')( reading );
 	reading.model.Chat = require('./model/Chat')( reading );
 	reading.model.Event = require('./model/Event')( reading );
 	
+	console.log("SOCKET IO HOOK: registering pages...");
 	//app.configure( function(){
 	require('./handler/chat.js')( reading );
 	require('./handler/users.js')( reading );
@@ -72,6 +74,7 @@ function socketio( hook, args , cb ){
 	require('./handler/pages.js')( reading );
 	require('./handler/events.js')( reading );
 	
+	console.log("SOCKET IO HOOK: complete");
 	cb();
 	//});
 }
