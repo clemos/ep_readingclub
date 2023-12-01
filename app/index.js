@@ -81,7 +81,9 @@ function expressConfigure(hook, args , cb ){
 	var app = args.app;
 	reading.app = app;
 
-	webaccess.expressConfigure(hook,args,cb);
+	// webaccess.expressConfigure(hook,args,cb);
+
+	// app.use(webaccess.checkAccess);
 
 	/*app.use( connect.cookieParser( conf.session.secret ) );
 	app.use( express.session( {
