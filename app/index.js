@@ -7,7 +7,6 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 var connect = require('connect');
 var etherpad_client = require('etherpad-lite-client');
-var connect_mongo = require('connect-mongo')(express);
 var webaccess = require('../../ep_etherpad-lite/node/hooks/express/webaccess');
 //var server = require('http').createServer(app);
 //var io = require('socket.io').listen(server);
