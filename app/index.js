@@ -6,6 +6,7 @@ var ejs = require('ejs');
 var fs = require('fs');
 var mongoose = require('mongoose');
 var connect = require('connect');
+var serveStatic = require('serve-static');
 var etherpad_client = require('etherpad-lite-client');
 var webaccess = require('../../ep_etherpad-lite/node/hooks/express/webaccess');
 //var server = require('http').createServer(app);
@@ -95,9 +96,13 @@ function expressConfigure(hook, args , cb ){
 		})
 	} ) );*/
 
-	app.use( connect.static( __dirname ) );
-	app.use( connect.static( __dirname + "/../dist" ) );
-	app.use( connect.bodyParser() );
+	// app.use( connect.static( __dirname ) );
+	// app.use( connect.static( __dirname + "/../dist" ) );
+
+	app.use( serveStatic( __dirname ) );
+	app.use( serveStatic( __dirname + "/../dist" ) );
+	
+	// app.use( connect.bodyParser() );
 	app.use( function(req,res,next){
 		//update user
 		//console.log("update user");
