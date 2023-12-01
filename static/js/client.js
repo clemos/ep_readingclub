@@ -44,14 +44,14 @@ exports.documentReady = function(){
 	var $content = $('#innerdocbody');
 
 	$zoomOut.click(function(){
-		var $content = getInnerDocBody();
-		//console.log("content",$content,$content.css('font-size'));
-		$content.css({'font-size' : ( parseInt( $content.css('font-size') ) - 1 ) + 'px' })
+		// var $content = getInnerDocBody();
+		// //console.log("content",$content,$content.css('font-size'));
+		// $content.css({'font-size' : ( parseInt( $content.css('font-size') ) - 1 ) + 'px' })
 	});
 	$zoomIn.click(function(){
-		var $content = getInnerDocBody();
-		//console.log("content",$content,$content.css('font-size'));
-		$content.css({'font-size' : ( parseInt( $content.css('font-size') ) + 1 ) + 'px' })
+		// var $content = getInnerDocBody();
+		// //console.log("content",$content,$content.css('font-size'));
+		// $content.css({'font-size' : ( parseInt( $content.css('font-size') ) + 1 ) + 'px' })
 	});
 
 	$zoomMenu.append($zoomOut).append($zoomIn);
@@ -61,15 +61,15 @@ exports.documentReady = function(){
 
 var min = 5;
 var max = 10;
-var aceFrame = null;
-var getInnerDocBody = function(){
-	var outer = $("iframe",aceFrame.contentDocument)[0];
-	//console.log("outer frame",outer);
-	var inner = outer.contentDocument;
-	//console.log("inner frame",inner);
-	return $("#innerdocbody", inner);
+// var aceFrame = null;
+// var getInnerDocBody = function(){
+// 	var outer = $("iframe",aceFrame.contentDocument)[0];
+// 	//console.log("outer frame",outer);
+// 	var inner = outer.contentDocument;
+// 	//console.log("inner frame",inner);
+// 	return $("#innerdocbody", inner);
 	
-}
+// }
 
 exports.aceInitialized = function(hookName,args){
 	min = getParameterByName("size_min");
@@ -81,14 +81,15 @@ exports.aceInitialized = function(hookName,args){
 
 exports.postAceInit = function(name,ace){
 	$(".edit-msg").fadeOut(0);
-	aceFrame = ace.ace.getFrame();
-	var inner = getInnerDocBody();
-	inner.on("click","a", function(e){
-		//console.log("link click");
-		e.stopPropagation();
-		e.preventDefault();
-		return false;
-	});
+	// aceFrame = ace.ace.getFrame();
+	window.__ace = ace;
+	// var inner = getInnerDocBody();
+	// inner.on("click","a", function(e){
+	// 	//console.log("link click");
+	// 	e.stopPropagation();
+	// 	e.preventDefault();
+	// 	return false;
+	// });
 	ace.ace.setProperty("textface", "Georgia, \"Times New Roman\", Times, serif" );
 }
 
