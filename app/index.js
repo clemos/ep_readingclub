@@ -55,7 +55,7 @@ function socketio( hook, args , cb ){
 	//console.log(app);
 	
 	//io.set("transports", ["xhr-polling", "jsonp-polling"]);
-	io.set("log level",3);
+	// io.set("log level",3);
 	//io.set("close timeout", 10);
 	//io.set("heartbeat timeout", 10);
 
@@ -72,6 +72,7 @@ function socketio( hook, args , cb ){
 	require('./handler/pages.js')( reading );
 	require('./handler/events.js')( reading );
 	
+	cb();
 	//});
 }
 
@@ -102,7 +103,7 @@ function expressConfigure(hook, args , cb ){
 	app.use( serveStatic( __dirname ) );
 	app.use( serveStatic( __dirname + "/../dist" ) );
 	
-	// app.use( connect.bodyParser() );
+	//app.use( connect.bodyParser() );
 	app.use( function(req,res,next){
 		//update user
 		//console.log("update user");
